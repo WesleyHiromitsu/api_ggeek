@@ -32,5 +32,17 @@ module.exports = {
     await Product.findByIdAndRemove(req.params.id);
 
     return res.send();
+  },
+
+  async chaveiro(req, res) {
+    const product = await Product.find({category: req.params.categoryId});
+
+    return res.json(product);
+  },
+
+  async caneca(req, res) {
+    const product = await Product.find({category: req.params.categoryId});
+
+    return res.json(product);
   }
 };

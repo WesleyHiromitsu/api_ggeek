@@ -1,13 +1,17 @@
 const express = require('express');
 const routes = express.Router();
 
-const ProductController = require('./controllers/ProductController');
+const Products = require('./router/Products');
 
-routes.get('/products', ProductController.index);
-routes.get('/products/:id', ProductController.show);
-routes.post('/products', ProductController.store);
-routes.put('/products/:id', ProductController.update);
-routes.delete('/products/:id', ProductController.destroy);
+//ProductController
+routes.get('/products', Products.index);
+routes.get('/products/:id', Products.show);
+routes.post('/products', Products.store);
+routes.put('/products/:id', Products.update);
+routes.delete('/products/:id', Products.destroy);
 
+routes.get('/:categoryId', function (req, res) {
+  res.send(req.params.categoryId);
+});
 
 module.exports = routes;
