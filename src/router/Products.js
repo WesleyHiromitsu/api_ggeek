@@ -34,15 +34,10 @@ module.exports = {
     return res.send();
   },
 
-  async chaveiro(req, res) {
-    const product = await Product.find({category: req.params.categoryId});
+  async category(req, res) {
+    const product = await Product.find({category: req.params.category});
 
     return res.json(product);
   },
 
-  async caneca(req, res) {
-    const product = await Product.find({category: req.params.categoryId});
-
-    return res.json(product);
-  }
 };

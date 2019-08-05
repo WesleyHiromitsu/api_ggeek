@@ -10,8 +10,6 @@ routes.post('/products', Products.store);
 routes.put('/products/:id', Products.update);
 routes.delete('/products/:id', Products.destroy);
 
-routes.get('/:categoryId', function (req, res) {
-  res.send(req.params.categoryId);
-});
+routes.get('/:category', Products.category);
 
 module.exports = routes;
