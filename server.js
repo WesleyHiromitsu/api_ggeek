@@ -1,5 +1,5 @@
 // chamando o arquivo .env
-//require('dotenv').config()
+require('dotenv').config()
 
 
 // require
