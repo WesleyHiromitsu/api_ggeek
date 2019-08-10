@@ -2,6 +2,37 @@ const mongoose = require('mongoose');
 
 const Product = mongoose.model('Product');
 
+async function addNewProduct(id) {
+  const product = await Product.findById(id);
+
+  let currentQuantity = product.sold; // []
+
+  let meuNovoProdutoVendido = {
+    date: Date.now(),
+    quantity: 1
+  };
+
+  // https://www.w3schools.com/jsref/jsref_push.asp
+
+  currentQuantity.push(meuNovoProdutoVendido);
+
+  product.sold = currentQuantity;
+
+  return await product.save();
+}
+
+async function removeOneProduct(id) {
+  const product = await Product.findById(id);
+
+  let currentQuantity = product.amount; // []
+
+  currentQuantity = currentQuantity - 1;
+
+  product.amount = currentQuantity;
+
+  return await product.save();
+}
+
 module.exports = {
   async index(req, res) {
     const products = await Product.find();
@@ -38,5 +69,18 @@ module.exports = {
 
     return res.json(product);
   },
+
+  async newProductSold(req, res) {
+
+    try {
+      await addNewProduct(req.params.id);
+    	await removeOneProduct(req.params.id);
+
+      res.send('Deu certo');
+    } catch (err) {
+      res.send(err);
+    }
+  },
+
 
 };

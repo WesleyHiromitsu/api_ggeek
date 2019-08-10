@@ -18,9 +18,6 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  s_amount: {
-    type: String
-  },
   category: {
     type: String,
     required: true
@@ -28,7 +25,11 @@ const ProductSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  sold: {
+    type: Array,
+    default: []
+	}
 });
 
 //ProductSchema.plugin(mongoosePaginate);

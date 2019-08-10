@@ -12,4 +12,7 @@ routes.delete('/products/:id', Products.destroy);
 
 routes.get('/:category', Products.category);
 
+routes.put('/product-sold/:id', Products.newProductSold);
+
+
 module.exports = routes;
