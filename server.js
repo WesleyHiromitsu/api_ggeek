@@ -8,6 +8,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 
+
 // iniciando o DB
 mongoose.connect(process.env.DB_URL, {useNewUrlParser: true});
 
@@ -22,6 +23,7 @@ requireDir("./src/models");
 
 // Rotas
 app.use('/api', require('./src/routes'));
+app.use('/user', require('./src/router/Users'));
 
 //Ligando o servidor na porta 3001
 app.listen(process.env.PORT || 3001);
