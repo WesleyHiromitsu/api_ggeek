@@ -6,11 +6,11 @@ const ProductSchema = new mongoose.Schema({
     required: true
   },
   b_price: {
-    type: Decimal128,
+    type: String,
     required: true
   },
   s_price: {
-    type: Decimal128,
+    type: String,
     required: true
   },
   amount: {
