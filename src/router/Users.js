@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
-routes.post('/signup', (req, res, next) =>{
+routes.post('/signup', (req, res, next) => {
     User.find({email: req.body.email})
     .exec()
     .then(user => {
